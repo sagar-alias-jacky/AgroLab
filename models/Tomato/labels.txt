@@ -1,0 +1,10 @@
+0 Tomato Bacterial Spot
+1 Tomato Early Blight
+2 Tomato Late Blight
+3 Tomato Leaf Mold
+4 Tomato Healthy
+5 Tomato Mosaic Virus
+6 Tomato Septoria Leaf Spot
+7 Tomato Target Spot
+8 Tomato Two-spotted Spider-mite
+9 Tomato Yellow Leaf Curl Virus

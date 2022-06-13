@@ -1,0 +1,2 @@
+0 Bell_Pepper Healthy
+1 Bell_Pepper Bacterial  Spot
