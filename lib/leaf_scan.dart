@@ -11,13 +11,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tflite/tflite.dart';
 
 class LeafScan extends StatefulWidget {
-  const LeafScan({Key? key}) : super(key: key);
+  final String modelName;
+  //parameters passed from home screen
+  const LeafScan({Key? key, required this.modelName}) : super(key: key);
 
   @override
-  State<LeafScan> createState() => _HomeScreenState();
+  State<LeafScan> createState() => _LeafScanState(modelName);
 }
 
-class _HomeScreenState extends State<LeafScan> {
+class _LeafScanState extends State<LeafScan> {
+  String modelName;
+  _LeafScanState(this.modelName);
+
   File? pickedImage;
   bool isButtonPressedCamera = false;
   bool isButtonPressedGallery = false;
@@ -28,6 +33,29 @@ class _HomeScreenState extends State<LeafScan> {
   List? results;
   String confidence = "";
   String name = "";
+
+  String ModelPathSelector() {
+    if (modelName.toLowerCase() == "apple")
+      return 'models/Apple';
+    else if (modelName.toLowerCase() == "bellpepper")
+      return 'models/Bell\ Pepper';
+    else if (modelName.toLowerCase() == "cherry")
+      return 'models/Cherry';
+    else if (modelName.toLowerCase() == "corn")
+      return 'models/Corn';
+    else if (modelName.toLowerCase() == "grape")
+      return 'models/Grape';
+    else if (modelName.toLowerCase() == "peach")
+      return 'models/Peach';
+    else if (modelName.toLowerCase() == "potato")
+      return 'models/Potato';
+    else if (modelName.toLowerCase() == "rice")
+      return 'models/Rice';
+    else if (modelName.toLowerCase() == "tomato")
+      return 'models/Tomato';
+    else
+      return "";
+  }
 
   Future getImage(ImageSource source) async {
     try {
@@ -65,6 +93,7 @@ class _HomeScreenState extends State<LeafScan> {
   @override
   void initState() {
     super.initState();
+    print(modelName);
     loadModel().then((val) {
       setState(() {});
     });
@@ -77,8 +106,11 @@ class _HomeScreenState extends State<LeafScan> {
   }
 
   loadModel() async {
+    String modelPath = ModelPathSelector();
+    print(modelPath);
     var resultant = await Tflite.loadModel(
-        model: "models/model.tflite", labels: "models/labels.txt");
+        model: modelPath + "/model_unquant.tflite",
+        labels: modelPath + "/labels.txt");
 
     print("Result after loading model: $resultant");
   }
@@ -215,7 +247,7 @@ class _HomeScreenState extends State<LeafScan> {
                             fit: BoxFit.cover,
                           )
                         : LottieBuilder.asset(
-                            'assets/plant.json',
+                            'assets/39771-farm.json',
                             width: 300,
                             height: 300,
                           ),
