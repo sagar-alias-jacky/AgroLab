@@ -68,6 +68,10 @@ flutter:
     - models/
     - models/Apple/model_unquant.tflite
     - models/Apple/labels.txt
+    - models/BellPepper/model_unquant.tflite
+    - models/BellPepper/labels.txt
+    - models/Cherry/model_unquant.tflite
+    - models/Cherry/labels.txt
     - assets/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

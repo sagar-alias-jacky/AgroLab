@@ -318,8 +318,8 @@ class _LeafScanState extends State<LeafScan> {
                     color: backgroundColor,
                     lightSource: LightSource.topLeft,
                     intensity: 20,
-                    boxShape:
-                        NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
+                    boxShape: NeumorphicBoxShape.roundRect(
+                        BorderRadius.circular(10)),
                   ),
                   margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
                   child: Column(
