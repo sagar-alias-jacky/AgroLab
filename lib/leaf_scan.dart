@@ -8,7 +8,13 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ml_test/encyclopedia_screen.dart';
+import 'package:ml_test/home_screen.dart';
 import 'package:tflite/tflite.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'app_info_screen.dart';
 
 class LeafScan extends StatefulWidget {
   final String modelName;
@@ -33,12 +39,16 @@ class _LeafScanState extends State<LeafScan> {
   List? results;
   String confidence = "";
   String name = "";
+  String crop_name = "";
+  String disease_name = "";
+  String disease_url = "";
+  bool result_visibility = false;
 
   String ModelPathSelector() {
     if (modelName.toLowerCase() == "apple")
       return 'models/Apple';
     else if (modelName.toLowerCase() == "bellpepper")
-      return 'models/Bell\ Pepper';
+      return 'models/BellPepper';
     else if (modelName.toLowerCase() == "cherry")
       return 'models/Cherry';
     else if (modelName.toLowerCase() == "corn")
@@ -67,6 +77,7 @@ class _LeafScanState extends State<LeafScan> {
         setState(() {
           pickedImage = imageTemporary;
           applyModelOnImage(pickedImage!);
+          result_visibility = true;
           isButtonPressedCamera = false;
           isButtonPressedGallery = false;
         });
@@ -133,7 +144,17 @@ class _LeafScanState extends State<LeafScan> {
           : "";
       print(name);
       print(confidence);
+      split_model_result();
     });
+  }
+
+  void split_model_result() {
+    List temp = name.split(' ');
+    crop_name = temp[0];
+    temp.removeAt(0);
+    disease_name = temp.join(' ');
+    print(crop_name);
+    print(disease_name);
   }
 
   void closeModel() async {
@@ -153,6 +174,30 @@ class _LeafScanState extends State<LeafScan> {
         onTap: (index) {
           //todo implement transition to other screens
           print(index);
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Encyclopedia(),
+              ),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeScreen(),
+              ),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AppInfoScreen(),
+              ),
+            );
+          }
         },
         index: 1,
         backgroundColor: backgroundColor,
@@ -312,48 +357,237 @@ class _LeafScanState extends State<LeafScan> {
                   ],
                 ),
               ),
-              Expanded(
-                child: Neumorphic(
-                  style: NeumorphicStyle(
-                    color: backgroundColor,
-                    lightSource: LightSource.topLeft,
-                    intensity: 20,
-                    boxShape: NeumorphicBoxShape.roundRect(
-                        BorderRadius.circular(10)),
-                  ),
-                  margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Center(
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                          child: Column(
-                            children: [
-                              Text(
-                                name,
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
+              Visibility(
+                visible: !result_visibility,
+                child: Expanded(
+                  child: Neumorphic(
+                    style: NeumorphicStyle(
+                      // color: backgroundColor,
+                      // color: Colors.red.shade700,
+                      lightSource: LightSource.topLeft,
+                      intensity: 20,
+                      boxShape: NeumorphicBoxShape.roundRect(
+                          BorderRadius.circular(10)),
+                    ),
+                    margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                    child: Container(
+                      // padding: EdgeInsets.fromLTRB(50, 10, 50, 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 20, 10, 10),
+                            child: Row(
+                              children: [
+                                NeumorphicIcon(
+                                  Icons.camera_alt_rounded,
+                                  style: NeumorphicStyle(
+                                    color: accentColor,
+                                    intensity: 20,
+                                  ),
+                                  size: 15,
                                 ),
-                                textAlign: TextAlign.justify,
-                              ),
-                              Text(
-                                confidence,
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black,
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    left: 5,
+                                  ),
+                                  child: Text(
+                                    "Select an image of the plant's leaf to view the results",
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.justify,
+                                  ),
                                 ),
-                                textAlign: TextAlign.justify,
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                            child: Row(
+                              children: [
+                                NeumorphicIcon(
+                                  Icons.light_mode_rounded,
+                                  style: NeumorphicStyle(
+                                    color: accentColor,
+                                    intensity: 20,
+                                  ),
+                                  size: 15,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    left: 5,
+                                  ),
+                                  child: Text(
+                                    'The image must be well lit and clear',
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.justify,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                NeumorphicIcon(
+                                  Icons.hide_image_rounded,
+                                  style: NeumorphicStyle(
+                                    color: accentColor,
+                                    intensity: 20,
+                                  ),
+                                  size: 15,
+                                ),
+                                Expanded(
+                                  child: Container(
+                                    padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
+                                    child: Text(
+                                      "Images other than the specific plant's leaves may lead to inaccurate results",
+                                      softWrap: true,
+                                      maxLines: 10,
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                      ),
+                                      // textDirection: TextDirection.rtl,
+                                      textAlign: TextAlign.justify,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Visibility(
+                visible: result_visibility,
+                child: GestureDetector(
+                  onTap: () async {
+                    if (disease_name.toLowerCase() != "healthy") {
+                      disease_url = "https://www.google.com/search?q=" +
+                          modelName +
+                          '+' +
+                          disease_name.replaceAll(' ', '+');
+                      Uri url = Uri.parse(disease_url);
+                      await launchUrl(url, mode: LaunchMode.inAppWebView);
+                    } else {
+                      disease_url = "https://www.google.com/search?q=" +
+                          modelName +
+                          '+' +
+                          'plant+care+tips';
+                      Uri url = Uri.parse(disease_url);
+                      await launchUrl(url, mode: LaunchMode.inAppWebView);
+                    }
+                  },
+                  child: Expanded(
+                    child: Neumorphic(
+                      style: NeumorphicStyle(
+                        // color: backgroundColor,
+                        // color: Colors.red.shade700,
+                        lightSource: LightSource.topLeft,
+                        intensity: 20,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(10)),
+                      ),
+                      margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Center(
+                            //   child: Text(
+                            //     disease_name,
+                            //     style: TextStyle(
+                            //       fontSize: 15,
+                            //       fontWeight: FontWeight.bold,
+                            //       color: Colors.black,
+                            //     ),
+                            //     textAlign: TextAlign.justify,
+                            //   ),
+                            // ),
+                            Center(
+                              child: Container(
+                                padding: EdgeInsets.fromLTRB(50, 10, 50, 20),
+                                child: NeumorphicText(
+                                  disease_name,
+                                  style: NeumorphicStyle(
+                                    color: Colors.black,
+                                    // color: Colors.green.shade800,
+                                    intensity: 20,
+                                  ),
+                                  textStyle: NeumorphicTextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  child: Text(
+                                    'Confidence : ' + confidence,
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.justify,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    NeumorphicIcon(
+                                      Icons.info_rounded,
+                                      style: NeumorphicStyle(
+                                        color: accentColor,
+                                        intensity: 20,
+                                      ),
+                                      size: 15,
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.only(
+                                        left: 5,
+                                      ),
+                                      child: Text(
+                                        disease_name.toLowerCase() != "healthy"
+                                            ? 'Tap on this card to read more about this disease'
+                                            : 'Tap on this card for ' +
+                                                modelName +
+                                                ' plant care tips',
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),

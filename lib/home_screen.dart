@@ -6,6 +6,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ml_test/leaf_scan.dart';
 
+import 'app_info_screen.dart';
+import 'encyclopedia_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -31,6 +34,30 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: (index) {
           //todo implement transition to other screens
           print(index);
+          if (index == 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Encyclopedia(),
+              ),
+            );
+          }
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeScreen(),
+              ),
+            );
+          }
+          if (index == 2) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AppInfoScreen(),
+              ),
+            );
+          }
         },
         index: 1,
         backgroundColor: backgroundColor,

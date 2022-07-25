@@ -1,4 +1,4 @@
 0 Rice Healthy
-1 Rice Brown S...
+1 Rice Brown Spot
 2 Rice Hispa
-3 Rice Leaf Bl...
+3 Rice Leaf Blast
