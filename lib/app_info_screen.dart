@@ -42,12 +42,12 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
             );
           }
           if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => AppInfoScreen(),
-              ),
-            );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => AppInfoScreen(),
+            //   ),
+            // );
           }
         },
         index: 2,

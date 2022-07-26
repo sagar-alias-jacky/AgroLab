@@ -43,12 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
           if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => HomeScreen(),
-              ),
-            );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) => HomeScreen(),
+            //   ),
+            // );
           }
           if (index == 2) {
             Navigator.push(

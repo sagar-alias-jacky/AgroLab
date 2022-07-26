@@ -359,15 +359,15 @@ class _LeafScanState extends State<LeafScan> {
               ),
               Visibility(
                 visible: !result_visibility,
-                child: Expanded(
+                child: Flexible(
                   child: Neumorphic(
                     style: NeumorphicStyle(
                       // color: backgroundColor,
                       // color: Colors.red.shade700,
                       lightSource: LightSource.topLeft,
                       intensity: 20,
-                      boxShape: NeumorphicBoxShape.roundRect(
-                          BorderRadius.circular(10)),
+                      boxShape:
+                          NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
                     ),
                     margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
                     child: Container(
@@ -474,25 +474,25 @@ class _LeafScanState extends State<LeafScan> {
               ),
               Visibility(
                 visible: result_visibility,
-                child: GestureDetector(
-                  onTap: () async {
-                    if (disease_name.toLowerCase() != "healthy") {
-                      disease_url = "https://www.google.com/search?q=" +
-                          modelName +
-                          '+' +
-                          disease_name.replaceAll(' ', '+');
-                      Uri url = Uri.parse(disease_url);
-                      await launchUrl(url, mode: LaunchMode.inAppWebView);
-                    } else {
-                      disease_url = "https://www.google.com/search?q=" +
-                          modelName +
-                          '+' +
-                          'plant+care+tips';
-                      Uri url = Uri.parse(disease_url);
-                      await launchUrl(url, mode: LaunchMode.inAppWebView);
-                    }
-                  },
-                  child: Expanded(
+                child: Expanded(
+                  child: GestureDetector(
+                    onTap: () async {
+                      if (disease_name.toLowerCase() != "healthy") {
+                        disease_url = "https://www.google.com/search?q=" +
+                            modelName +
+                            '+' +
+                            disease_name.replaceAll(' ', '+');
+                        Uri url = Uri.parse(disease_url);
+                        await launchUrl(url, mode: LaunchMode.inAppWebView);
+                      } else {
+                        disease_url = "https://www.google.com/search?q=" +
+                            modelName +
+                            '+' +
+                            'plant+care+tips';
+                        Uri url = Uri.parse(disease_url);
+                        await launchUrl(url, mode: LaunchMode.inAppWebView);
+                      }
+                    },
                     child: Neumorphic(
                       style: NeumorphicStyle(
                         // color: backgroundColor,
@@ -509,20 +509,10 @@ class _LeafScanState extends State<LeafScan> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Center(
-                            //   child: Text(
-                            //     disease_name,
-                            //     style: TextStyle(
-                            //       fontSize: 15,
-                            //       fontWeight: FontWeight.bold,
-                            //       color: Colors.black,
-                            //     ),
-                            //     textAlign: TextAlign.justify,
-                            //   ),
-                            // ),
                             Center(
                               child: Container(
-                                padding: EdgeInsets.fromLTRB(50, 10, 50, 20),
+                                padding:
+                                    EdgeInsets.fromLTRB(50, 10, 50, 20),
                                 child: NeumorphicText(
                                   disease_name,
                                   style: NeumorphicStyle(
@@ -567,7 +557,8 @@ class _LeafScanState extends State<LeafScan> {
                                         left: 5,
                                       ),
                                       child: Text(
-                                        disease_name.toLowerCase() != "healthy"
+                                        disease_name.toLowerCase() !=
+                                                "healthy"
                                             ? 'Tap on this card to read more about this disease'
                                             : 'Tap on this card for ' +
                                                 modelName +
