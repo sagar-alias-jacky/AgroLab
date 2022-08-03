@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'encyclopedia_screen.dart';
 import 'home_screen.dart';
@@ -154,91 +155,395 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                         ),
                         Row(
                           children: [
-                            Neumorphic(
-                              margin: EdgeInsets.only(
-                                left: 20,
-                              ),
-                              style: NeumorphicStyle(
-                                border: NeumorphicBorder(
-                                  color: accentColor,
-                                  width: 2,
+                            Column(
+                              children: [
+                                Neumorphic(
+                                  margin: EdgeInsets.only(
+                                    left: 20,
+                                  ),
+                                  style: NeumorphicStyle(
+                                    border: NeumorphicBorder(
+                                      color: accentColor,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image(
+                                      width: 150,
+                                      height: 150,
+                                      fit: BoxFit.cover,
+                                      image: AssetImage('assets/sagarp.png'),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image(
+                                Container(
                                   width: 150,
-                                  height: 150,
-                                  fit: BoxFit.cover,
-                                  image: AssetImage('assets/sagarp.png'),
-                                ),
-                              ),
+                                  margin: EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                          right: 10,
+                                        ),
+                                        child: NeumorphicText(
+                                          'Sagar Paul',
+                                          style: NeumorphicStyle(
+                                            color: Colors.black,
+                                          ),
+                                          textStyle: NeumorphicTextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/sagar-alias-jacky';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              margin: EdgeInsets.only(
+                                                right: 10,
+                                              ),
+                                              child: SvgPicture.asset(
+                                                'assets/linkedin.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/sagar-alias-jacky';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              child: SvgPicture.asset(
+                                                'assets/github.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
-                            Neumorphic(
-                              margin: EdgeInsets.only(
-                                left: 20,
-                              ),
-                              style: NeumorphicStyle(
-                                border: NeumorphicBorder(
-                                  color: accentColor,
-                                  width: 2,
+                            Column(
+                              children: [
+                                Neumorphic(
+                                  margin: EdgeInsets.only(
+                                    left: 20,
+                                  ),
+                                  style: NeumorphicStyle(
+                                    border: NeumorphicBorder(
+                                      color: accentColor,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image(
+                                      width: 150,
+                                      height: 150,
+                                      fit: BoxFit.cover,
+                                      image: AssetImage('assets/paulg.jpg'),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image(
+                                Container(
                                   width: 150,
-                                  height: 150,
-                                  fit: BoxFit.cover,
-                                  image: AssetImage('assets/paulg.jpg'),
-                                ),
-                              ),
+                                  margin: EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                          right: 10,
+                                        ),
+                                        child: NeumorphicText(
+                                          'Paul G',
+                                          style: NeumorphicStyle(
+                                            color: Colors.black,
+                                          ),
+                                          textStyle: NeumorphicTextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/sagar-alias-jacky';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              margin: EdgeInsets.only(
+                                                right: 10,
+                                              ),
+                                              child: SvgPicture.asset(
+                                                'assets/linkedin.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/sagar-alias-jacky';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              child: SvgPicture.asset(
+                                                'assets/github.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
                           ],
                         ),
                         Row(
                           children: [
-                            Neumorphic(
-                              margin: EdgeInsets.only(
-                                top: 20,
-                                left: 20,
-                              ),
-                              style: NeumorphicStyle(
-                                border: NeumorphicBorder(
-                                  color: accentColor,
-                                  width: 2,
+                            Column(
+                              children: [
+                                Neumorphic(
+                                  margin: EdgeInsets.only(
+                                    top: 20,
+                                    left: 20,
+                                  ),
+                                  style: NeumorphicStyle(
+                                    border: NeumorphicBorder(
+                                      color: accentColor,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image(
+                                      width: 150,
+                                      height: 150,
+                                      fit: BoxFit.cover,
+                                      image: AssetImage('assets/varunc.jpg'),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image(
+                                Container(
                                   width: 150,
-                                  height: 150,
-                                  fit: BoxFit.cover,
-                                  image: AssetImage('assets/varunc.jpg'),
-                                ),
-                              ),
+                                  margin: EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                          right: 10,
+                                        ),
+                                        child: NeumorphicText(
+                                          'Varun C',
+                                          style: NeumorphicStyle(
+                                            color: Colors.black,
+                                          ),
+                                          textStyle: NeumorphicTextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/sagar-alias-jacky';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              margin: EdgeInsets.only(
+                                                right: 10,
+                                              ),
+                                              child: SvgPicture.asset(
+                                                'assets/linkedin.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/sagar-alias-jacky';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              child: SvgPicture.asset(
+                                                'assets/github.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
-                            Neumorphic(
-                              margin: EdgeInsets.only(
-                                left: 20,
-                                top: 20,
-                              ),
-                              style: NeumorphicStyle(
-                                border: NeumorphicBorder(
-                                  color: accentColor,
-                                  width: 2,
+                            Column(
+                              children: [
+                                Neumorphic(
+                                  margin: EdgeInsets.only(
+                                    left: 20,
+                                    top: 20,
+                                  ),
+                                  style: NeumorphicStyle(
+                                    border: NeumorphicBorder(
+                                      color: accentColor,
+                                      width: 2,
+                                    ),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image(
+                                      width: 150,
+                                      height: 150,
+                                      fit: BoxFit.cover,
+                                      image: AssetImage('assets/nihalm.jpg'),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(10),
-                                child: Image(
+                                Container(
                                   width: 150,
-                                  height: 150,
-                                  fit: BoxFit.cover,
-                                  image: AssetImage('assets/nihalm.jpg'),
-                                ),
-                              ),
+                                  margin: EdgeInsets.only(
+                                    top: 10,
+                                    left: 20,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.only(
+                                          right: 10,
+                                        ),
+                                        child: NeumorphicText(
+                                          'Nihal Manoj',
+                                          style: NeumorphicStyle(
+                                            color: Colors.black,
+                                          ),
+                                          textStyle: NeumorphicTextStyle(
+                                            fontSize: 15,
+                                            fontFamily: 'Poppins',
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://www.linkedin.com/in/nihal-james-manoj-3b7364246';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              margin: EdgeInsets.only(
+                                                right: 10,
+                                              ),
+                                              child: SvgPicture.asset(
+                                                'assets/linkedin.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () async {
+                                              String surl =
+                                                  'https://github.com/Blieve4ever';
+                                              Uri url = Uri.parse(surl);
+                                              await launchUrl(url,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
+                                            },
+                                            child: Container(
+                                              child: SvgPicture.asset(
+                                                'assets/github.svg',
+                                                width: 20,
+                                                height: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
                             ),
                           ],
                         ),
@@ -254,6 +559,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                           margin: EdgeInsets.only(
                             top: 20,
                             left: 20,
+                            right: 20,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,7 +613,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                 width: 100,
                                 height: 35,
                               ),
-                            ), 
+                            ),
                             Container(
                               alignment: Alignment.topLeft,
                               margin: EdgeInsets.only(

@@ -143,7 +143,7 @@ class _EncyclopediaState extends State<Encyclopedia> {
                   style: NeumorphicStyle(
                     color: backgroundColor,
                     intensity: 20,
-                    depth: 20,
+                    // depth: 20,
                     lightSource: LightSource.topLeft,
                   ),
                   child: Column(
