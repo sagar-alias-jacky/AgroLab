@@ -149,6 +149,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                         height: 100,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             children: [
@@ -249,6 +250,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                               Neumorphic(
                                 margin: const EdgeInsets.only(
                                   left: 20,
+                                  right: 20,
                                 ),
                                 style: NeumorphicStyle(
                                   border: NeumorphicBorder(
@@ -271,6 +273,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                 margin: const EdgeInsets.only(
                                   top: 10,
                                   left: 20,
+                                  right: 20,
                                 ),
                                 child: Row(
                                   mainAxisAlignment:
@@ -299,7 +302,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                         GestureDetector(
                                           onTap: () async {
                                             String surl =
-                                                'https://github.com/sagar-alias-jacky';
+                                                'https://linkedin.com/in/paul-g-tharayil-04a9971b1';
                                             Uri url = Uri.parse(surl);
                                             await launchUrl(url,
                                                 mode: LaunchMode
@@ -319,7 +322,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                         GestureDetector(
                                           onTap: () async {
                                             String surl =
-                                                'https://github.com/sagar-alias-jacky';
+                                                'https://github.com/paul1947';
                                             Uri url = Uri.parse(surl);
                                             await launchUrl(url,
                                                 mode: LaunchMode
@@ -341,6 +344,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                         ],
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             children: [
@@ -398,7 +402,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                         GestureDetector(
                                           onTap: () async {
                                             String surl =
-                                                'https://github.com/sagar-alias-jacky';
+                                                'https://linkedin.com/in/varun-c-b598101a4';
                                             Uri url = Uri.parse(surl);
                                             await launchUrl(url,
                                                 mode: LaunchMode
@@ -418,7 +422,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                         GestureDetector(
                                           onTap: () async {
                                             String surl =
-                                                'https://github.com/sagar-alias-jacky';
+                                                'https://github.com/varunc20101';
                                             Uri url = Uri.parse(surl);
                                             await launchUrl(url,
                                                 mode: LaunchMode
@@ -443,6 +447,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                 margin: const EdgeInsets.only(
                                   left: 20,
                                   top: 20,
+                                  right: 20,
                                 ),
                                 style: NeumorphicStyle(
                                   border: NeumorphicBorder(
@@ -465,6 +470,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                 margin: const EdgeInsets.only(
                                   top: 10,
                                   left: 20,
+                                  right: 20,
                                 ),
                                 child: Row(
                                   mainAxisAlignment:
