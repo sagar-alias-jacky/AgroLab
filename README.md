@@ -22,9 +22,9 @@ An Android app for plant disease detection using Machine Learning, with a clean 
 ## Features
 
 - Supports a variety of crops
-- Clean and intiutive user interface
+- Clean and intuitive user interface
 - Individual trained machine learning models for each crop for improved accuracy
-- Superquick scan results 
+- Super-quick scan results 
 - Want to learn more about plant diseases and care? The Encyclopedia section in the app does just that!
 
 ## Team
