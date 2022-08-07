@@ -6,8 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ml_test/encyclopedia_screen.dart';
-import 'package:ml_test/home_screen.dart';
+import 'package:AgroLab/encyclopedia_screen.dart';
+import 'package:AgroLab/home_screen.dart';
 import 'package:tflite/tflite.dart';
 import 'package:url_launcher/url_launcher.dart';
 

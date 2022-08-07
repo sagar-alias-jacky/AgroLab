@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ml_test/leaf_scan.dart';
+import 'package:AgroLab/leaf_scan.dart';
 
 import 'app_info_screen.dart';
 import 'encyclopedia_screen.dart';

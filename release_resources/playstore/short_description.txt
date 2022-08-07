@@ -1,1 +1,1 @@
-Instant plant disease detection with Machine Learning, complemented by a clean and minimal user interface.
+Instant plant disease detection with ML, complemented by a clean and minimal UI.

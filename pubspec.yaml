@@ -1,5 +1,5 @@
-name: ml_test
-description: A new Flutter project.
+name: AgroLab
+description: An Android app for plant disease detection using Machine Learning, with a clean and minimal user interface.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
