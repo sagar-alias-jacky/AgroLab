@@ -206,7 +206,7 @@ class _AppInfoScreenState extends State<AppInfoScreen> {
                                         GestureDetector(
                                           onTap: () async {
                                             String surl =
-                                                'https://github.com/sagar-alias-jacky';
+                                                'https://www.linkedin.com/in/sagar-paul-6b4b9b247/';
                                             Uri url = Uri.parse(surl);
                                             await launchUrl(url,
                                                 mode: LaunchMode

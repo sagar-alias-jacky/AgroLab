@@ -1,11 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-
-import 'home_screen.dart';
-
-
-
+import 'splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +22,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         fontFamily: 'Poppins',
       ),
-      home: const HomeScreen(),
+      // home: const HomeScreen(),
+      home: const SplashPage(),
     );
   }
 }
