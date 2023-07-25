@@ -60,4 +60,4 @@ An Android app for plant disease detection using Machine Learning, with a clean 
 ## Feedback and Questions
 
 Have a question, or want to provide feedback? Visit the [Issues Page](https://github.com/github/feedback/discussions/categories/copilot-feedback)
-to ask questions, share bugs. For feedback email hexacode007@gmail.com.
+to ask questions, share bugs. For feedback email sagarpaul.dev@gmail.com.
